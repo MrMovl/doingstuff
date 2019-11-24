@@ -75,17 +75,27 @@ application config =
 
 allPages : List (PagePath PathKey)
 allPages =
-    [ (buildPage [ "blog", "draft" ])
-    , (buildPage [ "blog", "hello" ])
+    [ (buildPage [ "blog", "curry-generator_en" ])
+    , (buildPage [ "blog", "distributed-game_en" ])
+    , (buildPage [ "blog", "drag_and_drop" ])
+    , (buildPage [ "blog", "duel-dice_en" ])
     , (buildPage [ "blog" ])
+    , (buildPage [ "blog", "myBlog_de" ])
+    , (buildPage [ "blog", "pelican-blog_en" ])
+    , (buildPage [ "blog", "polymorphism-anda-abstraction_en" ])
     , (buildPage [  ])
     ]
 
 pages =
     { blog =
-        { draft = (buildPage [ "blog", "draft" ])
-        , hello = (buildPage [ "blog", "hello" ])
+        { curryGenerator_en = (buildPage [ "blog", "curry-generator_en" ])
+        , distributedGame_en = (buildPage [ "blog", "distributed-game_en" ])
+        , drag_and_drop = (buildPage [ "blog", "drag_and_drop" ])
+        , duelDice_en = (buildPage [ "blog", "duel-dice_en" ])
         , index = (buildPage [ "blog" ])
+        , myBlog_de = (buildPage [ "blog", "myBlog_de" ])
+        , pelicanBlog_en = (buildPage [ "blog", "pelican-blog_en" ])
+        , polymorphismAndaAbstraction_en = (buildPage [ "blog", "polymorphism-anda-abstraction_en" ])
         , directory = directoryWithIndex ["blog"]
         }
     , index = (buildPage [  ])
@@ -99,7 +109,7 @@ images =
         , directory = directoryWithoutIndex ["articleCovers"]
         }
     , author =
-        { dillon = (buildImage [ "author", "dillon.jpg" ])
+        { tomke = (buildImage [ "author", "tomke.jpg" ])
         , directory = directoryWithoutIndex ["author"]
         }
     , elmLogo = (buildImage [ "elm-logo.svg" ])
@@ -113,7 +123,7 @@ allImages : List (ImagePath PathKey)
 allImages =
     [(buildImage [ "article-covers", "hello.jpg" ])
     , (buildImage [ "article-covers", "mountains.jpg" ])
-    , (buildImage [ "author", "dillon.jpg" ])
+    , (buildImage [ "author", "tomke.jpg" ])
     , (buildImage [ "elm-logo.svg" ])
     , (buildImage [ "github.svg" ])
     , (buildImage [ "icon-png.png" ])
@@ -145,20 +155,50 @@ isValidRoute route =
 content : List ( List String, { extension: String, frontMatter : String, body : Maybe String } )
 content =
     [ 
-  ( ["blog", "draft"]
-    , { frontMatter = """{"type":"blog","author":"Dillon Kearns","title":"A Draft Blog Post","description":"I'm not quite ready to share this post with the world","image":"/images/article-covers/mountains.jpg","draft":true,"published":"2019-09-21"}
+  ( ["blog", "curry-generator_en"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"Curry Generator 1","description":"A short tale of my first elm toy project","image":"/images/article-covers/hello.jpg","published":"2017-01-25"}
 """ , body = Nothing
     , extension = "md"
     } )
   ,
-  ( ["blog", "hello"]
-    , { frontMatter = """{"type":"blog","author":"Dillon Kearns","title":"Hello `elm-pages`! 🚀","description":"Here's an intro for my blog post to get you interested in reading more...","image":"/images/article-covers/hello.jpg","published":"2019-09-21"}
+  ( ["blog", "distributed-game_en"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"The distributed game","description":"Know what would be interesting? A distributed game.","image":"/images/article-covers/hello.jpg","published":"2017-12-28"}
+""" , body = Nothing
+    , extension = "md"
+    } )
+  ,
+  ( ["blog", "drag_and_drop"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"Drag, but don't drop","description":"What a mean little firefox bug","image":"/images/article-covers/hello.jpg","published":"2017-04-04"}
+""" , body = Nothing
+    , extension = "md"
+    } )
+  ,
+  ( ["blog", "duel-dice_en"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"Duel Dice","description":"The game I still want to build","image":"/images/article-covers/hello.jpg","published":"2017-11-16"}
 """ , body = Nothing
     , extension = "md"
     } )
   ,
   ( ["blog"]
     , { frontMatter = """{"title":"elm-pages blog","type":"blog-index"}
+""" , body = Nothing
+    , extension = "md"
+    } )
+  ,
+  ( ["blog", "myBlog_de"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"This is my blog","description":"my blog is amazing ;)","image":"/images/article-covers/hello.jpg","published":"2017-01-23"}
+""" , body = Nothing
+    , extension = "md"
+    } )
+  ,
+  ( ["blog", "pelican-blog_en"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"Pelican Blog","description":"This post did not age well","image":"/images/article-covers/hello.jpg","published":"2017-01-25"}
+""" , body = Nothing
+    , extension = "md"
+    } )
+  ,
+  ( ["blog", "polymorphism-anda-abstraction_en"]
+    , { frontMatter = """{"type":"blog","author":"Tomke Reibisch","title":"Polymorphism and abstraction","description":"Wow","image":"/images/article-covers/hello.jpg","published":"2017-01-29"}
 """ , body = Nothing
     , extension = "md"
     } )

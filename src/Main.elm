@@ -34,12 +34,12 @@ manifest =
     , categories = [ Pages.Manifest.Category.education ]
     , displayMode = Manifest.Standalone
     , orientation = Manifest.Portrait
-    , description = "elm-pages-starter - A statically typed site generator."
+    , description = "doingstuff - A personal blog."
     , iarcRatingId = Nothing
-    , name = "elm-pages-starter"
+    , name = "doingstuff"
     , themeColor = Just Color.white
     , startUrl = pages.index
-    , shortName = Just "elm-pages-starter"
+    , shortName = Just "doingstuff"
     , sourceIcon = images.iconPng
     }
 
@@ -244,12 +244,11 @@ header currentPath =
                 , label =
                     Element.row [ Font.size 30, Element.spacing 16 ]
                         [ DocumentSvg.view
-                        , Element.text "elm-pages-starter"
+                        , Element.text "doingstuff"
                         ]
                 }
             , Element.row [ Element.spacing 15 ]
-                [ elmDocsLink
-                , githubRepoLink
+                [ githubRepoLink
                 , highlightableLink currentPath pages.blog.directory "Blog"
                 ]
             ]
@@ -291,7 +290,7 @@ head metadata =
         Metadata.Page meta ->
             Seo.summaryLarge
                 { canonicalUrlOverride = Nothing
-                , siteName = "elm-pages-starter"
+                , siteName = "doingstuff"
                 , image =
                     { url = images.iconPng
                     , alt = "elm-pages logo"
@@ -344,7 +343,7 @@ head metadata =
             in
             Seo.summary
                 { canonicalUrlOverride = Nothing
-                , siteName = "elm-pages-starter"
+                , siteName = "doingstuff"
                 , image =
                     { url = meta.avatar
                     , alt = meta.name ++ "'s elm-pages articles."
@@ -380,25 +379,25 @@ head metadata =
 
 canonicalSiteUrl : String
 canonicalSiteUrl =
-    "https://elm-pages-starter.netlify.com/"
+    "https://doingstuff.de/"
 
 
 siteTagline : String
 siteTagline =
-    "Starter blog for elm-pages"
+    "Doingstuff"
 
 
 publishedDateView metadata =
     Element.text
         (metadata.published
-            |> Date.format "MMMM ddd, yyyy"
+            |> Date.format "mm.dd.yyyy"
         )
 
 
 githubRepoLink : Element msg
 githubRepoLink =
     Element.newTabLink []
-        { url = "https://github.com/dillonkearns/elm-pages"
+        { url = "https://github.com/MrMovl/doingstuff"
         , label =
             Element.image
                 [ Element.width (Element.px 22)
@@ -407,15 +406,3 @@ githubRepoLink =
                 { src = ImagePath.toString Pages.images.github, description = "Github repo" }
         }
 
-
-elmDocsLink : Element msg
-elmDocsLink =
-    Element.newTabLink []
-        { url = "https://package.elm-lang.org/packages/dillonkearns/elm-pages/latest/"
-        , label =
-            Element.image
-                [ Element.width (Element.px 22)
-                , Font.color Palette.color.primary
-                ]
-                { src = ImagePath.toString Pages.images.elmLogo, description = "Elm Package Docs" }
-        }
