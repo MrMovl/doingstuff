@@ -390,7 +390,7 @@ siteTagline =
 publishedDateView metadata =
     Element.text
         (metadata.published
-            |> Date.format "mm.dd.yyyy"
+            |> Date.format "dd.MM.yyyy"
         )
 
 
